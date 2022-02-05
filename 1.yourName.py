@@ -11,3 +11,5 @@ while True:
     if name == 'your name':
         break
 print('Thank you!')
+
+# The / is a line continuation command, so if you have a long line of code that you want to break into two lines, just put a / at the end of the first line

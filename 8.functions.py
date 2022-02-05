@@ -38,3 +38,4 @@ print(fortune)
 ## you can disable the newline that gets added after every print line
 print('Hello', end='')
 print('World')
+
