@@ -54,3 +54,57 @@ mo1 = batRegex.search('The Adventures of Batman')
 print(mo1.group())
 mo2 = batRegex.search('The Adventures of Batwoman')
 print(mo2.group())
+
+## Looking for numbers that do or do not have area codes
+## again the ? basically means check for one or zero of the group preceding the ?
+phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+mo1 = phoneRegex.search('My number is 415-555-4242')
+print(mo1.group())
+mo2 = phoneRegex.search('My number is 555-4242')
+print(mo2.group())
+
+## the * matches 0 or more.  The group can be absent or repeated over and over
+batRegex = re.compile(r'Bat(wo)*man')
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1.group())
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+mo3 = batRegex.search('The Adventures of Batwowowowowoman')
+print(mo3.group())
+
+## + means match one or more
+batRegex = re.compile(r'Bat(wo)+man')
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1 == None)
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+
+## Specify reptitions with {} ha{3} will match HaHaHa but not HaHa
+## You can also specify a range in the braces {1,3} will match Ha, HaHa, and HaHaHa
+haRegex = re.compile(r'(Ha){3}')
+mo1 = haRegex.search('HaHaHa')
+print(mo1.group())
+mo2 = haRegex.search('Ha')
+print(mo2 == None)
+
+## Greedy vs Non-Greedy strings.  Pythons regexes are greedy by default, meaning they will match the longest string possible
+## non-greedy (also called lazy) have a ? after the {}
+greedyHaRegex = re.compile(r'(Ha){3,5}')
+mo1 = greedyHaRegex.search('HaHaHaHaHaHa')
+print(mo1.group())
+nonGreedyRegex = re.compile(r'(Ha){3,5}?')
+mo2 = nonGreedyRegex.search('HaHaHaHaHaHa')
+print(mo2.group())
+## {,n} returns from 0 to n of the preceding group... {n,} returns n or more or the preceding group
+
+## Search only returns the first match, findall() returns all matching strings in a list as long as there are no groups in the regular expression
+## If there are groups in the regex then findall() will return a list of tuples
+phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+mo = phoneNumRegex.search('Cell: 415-555-9999 Work: 212-555-0000')
+print(mo.group())
+mo1 = phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+print(mo1)
+
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)')
+mo2 = phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+print(mo2)
