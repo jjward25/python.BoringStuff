@@ -28,7 +28,6 @@ emailRegEx = re.compile(r'''(
     (\.[a-zA-Z]{2,4}) #dot something
 )''',re.VERBOSE)
 
-
 print(emailRegEx.findall(text))
 emailList = []
 for groups in emailRegEx.findall(text):

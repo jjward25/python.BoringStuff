@@ -1,6 +1,6 @@
 ## \d any numeric digit from 0 to 9
 ## \D Any character that is not a numeric digit from 0 to 9
-## \w Any letter, numeric digit, or the underscore chatacter
+## \w Any letter, numeric digit, or the underscore character
 ## \W Any character that is not a letter, numeric digit, or the underscore character
 ## \s Any space, tab, or newline character (matching "space" type characters)
 ## \S Any character that is not a space, tab or newline
