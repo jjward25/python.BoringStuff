@@ -116,3 +116,4 @@ phoneRegex = re.compile(r'''
 
 ## If you want to use multiple second arguments, you have to use the pipe | character
 someRegexValue = re.compile('foo',re.IGNORECASE|re.DOTALL|re.VERBOSE)
+
