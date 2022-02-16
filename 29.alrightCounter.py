@@ -4,7 +4,8 @@ import re
 
 text = pyperclip.paste()
 matchList = []
-print(text)
 alrightRegex = re.compile(r'alright|Alright')
 print(alrightRegex.findall(text))
 print(len(alrightRegex.findall(text)))
+
+
